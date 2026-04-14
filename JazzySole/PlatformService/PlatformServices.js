@@ -81,33 +81,29 @@ define('DS/PlatformServices/PlatformServices', [
          * Populate 3DSpace URL from platform services
          * @returns {Promise} Promise that resolves when URL is populated
          */
-        populate3DSpaceURL: function () {
+       populate3DSpaceURL: function () {
             var current = this;
             var global = current.getGlobalVariable();
-            
             return new Promise(function (resolve, reject) {
                 console.log('[PlatformServices] Getting platform services...');
-                
+                const platformId = widget.getValue("x3dPlatformId");
                 i3DXCompassPlatformServices.getPlatformServices({
-                    platformId: "OnPremise",
+                    platformId: platformId,
+					serviceName: '3DSpace',
                     onComplete: function (response) {
                         console.log('[PlatformServices] Platform services response:', response);
-                        
                         // Handle both array and object responses
                         var platformData = response.hasOwnProperty("length") ? response[0] : response;
-                        
                         global.baseURL = platformData["3DSpace"];
                         global.tenant = platformData["platformId"];
                         global.swymURL = platformData["3DSwym"];
                         global.compassURL = platformData["3DCompass"];
-                        
                         console.log('[PlatformServices] Platform URLs populated:', {
                             baseURL: global.baseURL,
                             tenant: global.tenant,
                             swymURL: global.swymURL,
                             compassURL: global.compassURL
                         });
-                        
                         resolve(response);
                     },
                     onFailure: function(error) {
