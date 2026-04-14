@@ -1,0 +1,38 @@
+/*
+ * Project POC Widget - Styles
+ */
+
+#project-poc-container {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding: 15px;
+    height: 100%;
+    color: #3d3d3d;
+    background-color: #f7f7f7;
+    display: block; /* Changed from flex/centered to block to take full width */
+}
+
+.hello-world-message {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e4e3;
+    text-align: center;
+}
+
+.hello-world-message h1 {
+    margin: 0 0 10px 0;
+    color: #368ec4; /* 3DS primary blue color */
+}
+
+.hello-world-message p {
+    margin: 0;
+    font-size: 1.1em;
+    color: #777;
+}
+
+.widget-info {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #999;
+}
